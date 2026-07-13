@@ -158,7 +158,7 @@ export default function Benefits() {
         </div>
       </section>
 
-      <section>
+      <section id="format">
         <h2 className="section-label">Формат</h2>
         <div className="format-grid fade-up">
           {formats.map(([Icon, label, value]) => (

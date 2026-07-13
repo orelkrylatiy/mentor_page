@@ -20,17 +20,18 @@ export default function Header() {
   return (
     <nav>
       <a className="nav-logo" href="#top">
-        <span className="nav-logo-mark" aria-hidden="true">
-          <img src="/images/brainwave-mark.svg" alt="" />
+        <span className="nav-logo-copy">
+          <span className="nav-logo-text">Максим Сергеевич</span>
+          <span className="nav-logo-subtitle">frontend mentor</span>
         </span>
-        <span className="nav-logo-text">BrainWave</span>
       </a>
       <div className="nav-links" aria-label="Секции">
         <a href="#about">Обо мне</a>
-        <a href="#track">Формат</a>
+        <a href="#track">Фокус</a>
         <a href="#process">Процесс</a>
-        <a href="#cases">Кейсы</a>
-        <a href="#trial">Пробное</a>
+        <a href="#format">Формат</a>
+        <a href="#cases">Отзывы</a>
+        <a href="#trial">Созвон</a>
       </div>
       <div className="nav-actions">
         <button

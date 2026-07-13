@@ -51,7 +51,10 @@ export default function Pricing() {
 
   useEffect(() => {
     function update() {
-      const nextVisible = window.innerWidth <= 860 ? 1 : 3;
+      let nextVisible = 3;
+      if (window.innerWidth <= 720) nextVisible = 1;
+      else if (window.innerWidth <= 1120) nextVisible = 2;
+
       const track = trackRef.current;
 
       setVisible(nextVisible);
@@ -61,7 +64,7 @@ export default function Pricing() {
       const gap = 16;
       const width = (track.parentElement.offsetWidth - gap * (nextVisible - 1)) / nextVisible;
       setCardWidth(width);
-      setCurrent(0);
+      setCurrent(prev => Math.min(prev, Math.max(0, reviews.length - nextVisible)));
     }
 
     update();
@@ -77,15 +80,15 @@ export default function Pricing() {
   }, [current, cardWidth]);
 
   const max = useMemo(() => Math.max(0, reviews.length - visible), [visible]);
+  const totalPages = max + 1;
+  const currentPage = Math.min(current + 1, totalPages);
+  const canSlide = reviews.length > visible;
 
   return (
     <>
       <section id="cases">
         <h2 className="section-label">Отзывы</h2>
         <div className="reviews-shell fade-up">
-          <button className="rev-btn rev-btn-left" onClick={() => setCurrent(prev => (prev > 0 ? prev - 1 : max))} type="button" aria-label="Предыдущие отзывы">
-            <ChevronLeft size={18} />
-          </button>
           <div className="reviews-outer">
             <div className="reviews-track" ref={trackRef}>
               {reviews.map(review => (
@@ -111,9 +114,29 @@ export default function Pricing() {
             <div className="reviews-fade reviews-fade-left" aria-hidden="true" />
             <div className="reviews-fade reviews-fade-right" aria-hidden="true" />
           </div>
-          <button className="rev-btn rev-btn-right" onClick={() => setCurrent(prev => (prev < max ? prev + 1 : 0))} type="button" aria-label="Следующие отзывы">
-            <ChevronRight size={18} />
-          </button>
+          <div className="reviews-controls">
+            <button
+              className="rev-btn rev-btn-left"
+              onClick={() => setCurrent(prev => (prev > 0 ? prev - 1 : max))}
+              type="button"
+              aria-label="Предыдущие отзывы"
+              disabled={!canSlide}
+            >
+              <ChevronLeft size={18} />
+            </button>
+            <div className="reviews-status" aria-live="polite">
+              {currentPage} / {totalPages}
+            </div>
+            <button
+              className="rev-btn rev-btn-right"
+              onClick={() => setCurrent(prev => (prev < max ? prev + 1 : 0))}
+              type="button"
+              aria-label="Следующие отзывы"
+              disabled={!canSlide}
+            >
+              <ChevronRight size={18} />
+            </button>
+          </div>
         </div>
       </section>
 

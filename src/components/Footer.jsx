@@ -30,12 +30,12 @@ export default function Footer() {
 
       <div className="footer-bottom">
         <a className="footer-logo" href="#top">
-          <span className="footer-logo-mark" aria-hidden="true">
-            <img src="/images/brainwave-mark.svg" alt="" />
+          <span className="footer-logo-copy">
+            <span className="footer-logo-text">Максим Сергеевич</span>
+            <span className="footer-logo-subtitle">frontend mentor</span>
           </span>
-          <span className="footer-logo-text">BrainWave</span>
         </a>
-        <span className="footer-note">Frontend · React · TypeScript</span>
+        <span className="footer-note">React · TypeScript · Portfolio · Interviews</span>
       </div>
     </footer>
   );

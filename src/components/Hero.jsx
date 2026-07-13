@@ -1,5 +1,3 @@
-import { ArrowRight } from 'lucide-react';
-
 const marqueeItems = ['React', 'TypeScript', 'Frontend', 'Code review', 'Портфолио', 'Собеседования', 'Архитектура'];
 
 export default function Hero() {
@@ -10,15 +8,16 @@ export default function Hero() {
           <div className="hero-bg-text" aria-hidden="true">DEV</div>
           <div className="hero-content">
             <div className="hero-tag">Менторство по frontend</div>
+            <p className="hero-lead">
+              Сделаю из тебя Middle Frontend Developer за 3 месяца.
+            </p>
             <h1 className="hero-title">
-              React и TypeScript
-              <br />
-              без хаоса —
-              <br />
-              <em>с понятным планом.</em>
+              <span>Через React и TypeScript</span>
+              <span>без хаоса —</span>
+              <em>с понятным планом роста.</em>
             </h1>
             <p className="hero-sub">
-              Помогаю собрать первый сильный проект, разобраться в логике React и выйти на уровень, где уже можно уверенно проходить собеседования.
+              Помогу собрать сильный проект, прокачать архитектурное мышление и выйти на уровень, где можно уверенно проходить собеседования и брать работу сильнее.
             </p>
             <div className="hero-stats">
               <div>
@@ -44,7 +43,7 @@ export default function Hero() {
         </div>
 
         <aside className="hero-photo mentor-photo">
-          <img src="/images/photo_2026-04-18_14-56-14.jpg" alt="Максим Сергеевич" />
+          <img src="/images/photo_2026-07-11_17-48-10.jpg" alt="Максим Сергеевич" />
           <div className="hero-photo-grad" />
           <div className="hero-badge mentor-badge mentor-plaque">
             <div className="hero-badge-name">Максим Сергеевич</div>

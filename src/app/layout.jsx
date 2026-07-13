@@ -1,15 +1,27 @@
 import './globals.css';
 import Script from 'next/script';
+import localFont from 'next/font/local';
+
+const spaceGrotesk = localFont({
+  src: [
+    { path: './fonts/SpaceGrotesk-Regular.ttf', weight: '400', style: 'normal' },
+    { path: './fonts/SpaceGrotesk-Medium.ttf', weight: '500', style: 'normal' },
+    { path: './fonts/SpaceGrotesk-Bold.ttf', weight: '700', style: 'normal' },
+  ],
+  variable: '--font-space-grotesk',
+  display: 'swap',
+});
 
 export const metadata = {
-  title: 'BrainWave — ментор по frontend и React',
-  description: 'Менторство по React, TypeScript и веб-разработке с нуля до первых проектов.',
+  title: 'Максим Сергеевич — frontend mentor',
+  description: 'Менторство по React, TypeScript и веб-разработке: проекты, собеседования и понятный план роста.',
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="ru" suppressHydrationWarning>
       <head>
+        <link rel="icon" href="/images/ms-mark.svg" type="image/svg+xml" />
         <Script id="theme-init" strategy="beforeInteractive">{`
           (function () {
             try {
@@ -21,15 +33,8 @@ export default function RootLayout({ children }) {
             }
           })();
         `}</Script>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="icon" href="/images/brainwave-mark.svg" type="image/svg+xml" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
-          rel="stylesheet"
-        />
       </head>
-      <body>{children}</body>
+      <body className={spaceGrotesk.variable}>{children}</body>
     </html>
   );
 }
