@@ -1,4 +1,5 @@
 import { ArrowRight, Code2, LayoutGrid, Sparkles, Target, Workflow, LaptopMinimal, CalendarDays, Clock3, FileText, CheckCircle2 } from 'lucide-react';
+import ManifestoSection from './ManifestoSection';
 
 const steps = [
   {
@@ -77,6 +78,8 @@ export default function Benefits() {
           </div>
         </div>
       </section>
+
+      <ManifestoSection />
 
       <section>
         <h2 className="section-label">Что внутри менторства</h2>
