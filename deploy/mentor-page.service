@@ -1,0 +1,19 @@
+[Unit]
+Description=Mentor Page Next.js landing page
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=deploy
+Group=deploy
+WorkingDirectory=/var/www/projects/mentor-page/current
+Environment=NODE_ENV=production
+Environment=PORT=3002
+ExecStart=/usr/bin/npm start -- --hostname 127.0.0.1 --port 3002
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=30
+
+[Install]
+WantedBy=multi-user.target
